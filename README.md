@@ -1,15 +1,15 @@
-# cli-tool-c56700
+# csv-parser-193f0c
 
-A command-line tool built with Node.js built-in `parseArgs`.
+A Node.js csv-parser utility.
 
-## Usage
+## Install
 
 ```bash
-node index.js run <task> --output ./out
-node index.js list --filter task
-node index.js version
+npm install
 ```
 
-## Project ID
+## Run
 
-`c56700`
+```bash
+npm start
+```

@@ -1,18 +1,12 @@
 {
-  "name": "cli-tool-c56700",
+  "name": "csv-parser-193f0c",
   "version": "1.0.0",
-  "description": "A command-line utility tool",
+  "description": "A csv-parser utility",
   "main": "index.js",
-  "bin": {
-    "tool": "./index.js"
-  },
   "scripts": {
     "start": "node index.js",
-    "test": "node --test"
+    "dev": "node --watch index.js"
   },
-  "keywords": ["cli", "tool", "utility"],
-  "license": "MIT",
-  "engines": {
-    "node": ">=18.2.0"
-  }
+  "keywords": ["csv-parser", "utility"],
+  "license": "MIT"
 }

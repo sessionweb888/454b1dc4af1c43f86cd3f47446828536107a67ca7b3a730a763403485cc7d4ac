@@ -1,80 +1,24 @@
-#!/usr/bin/env node
-/**
- * CLI tool entry point
- * Project ID: c56700
- */
-
 'use strict';
-
-const { parseArgs } = require('util');
-
-const COMMANDS_c56700 = {
-  run: cmdRun_c56700,
-  list: cmdList_c56700,
-  version: cmdVersion_c56700,
-};
-
-function cmdRun_c56700(positionals, opts) {
-  const task = positionals[0] || 'default';
-  const output = opts.output || './output';
-  console.log(`Running task: ${task}`);
-  console.log(`Output: ${output}`);
-  console.log(`Instance: c56700`);
-}
-
-function cmdList_c56700(positionals, opts) {
-  const filter = opts.filter || '';
-  const items = ['task-a', 'task-b', 'task-c'].filter(
-    (t) => !filter || t.includes(filter)
-  );
-  console.log('Available tasks:');
-  items.forEach((item) => console.log(`  - ${item}`));
-}
-
-function cmdVersion_c56700() {
-  const pkg = require('./package.json');
-  console.log(`${pkg.name} v${pkg.version} (id: c56700)`);
-}
-
-function printHelp_c56700() {
-  console.log(`Usage: tool <command> [options]
-
-Commands:
-  run <task>     Run a task
-  list           List available tasks
-  version        Show version info
-
-Options:
-  --output, -o   Output directory (default: ./output)
-  --filter, -f   Filter pattern for list command
-  --help, -h     Show this help
-`);
-}
-
-function main() {
-  const { values, positionals } = parseArgs({
-    args: process.argv.slice(2),
-    options: {
-      output: { type: 'string', short: 'o' },
-      filter: { type: 'string', short: 'f' },
-      help: { type: 'boolean', short: 'h' },
-    },
-    allowPositionals: true,
-    strict: false,
-  });
-
-  if (values.help || positionals.length === 0) {
-    printHelp_c56700();
-    process.exit(0);
+const os = require('os');
+const APP_NAME = 'csv-parser-193f0c';
+const VERSION = '1.0.0';
+class UcsvUparserHandler {
+  constructor(options = {}) {
+    this.name = APP_NAME;
+    this.version = VERSION;
+    this.options = options;
+    console.log(`[${this.name}] Initialized v${this.version}`);
   }
-
-  const [cmd, ...rest] = positionals;
-  const handler = COMMANDS_c56700[cmd];
-  if (!handler) {
-    console.error(`Unknown command: ${cmd}`);
-    process.exit(1);
+  process(data) {
+    console.log(`[${this.name}] Processing: ${JSON.stringify(data).slice(0, 100)}`);
+    return { status: 'success', handler: this.name, timestamp: Date.now() };
   }
-  handler(rest, values);
+  run() {
+    console.log(`[${this.name}] Starting...`);
+    const result = this.process({ input: 'default', platform: os.platform() });
+    console.log(`[${this.name}] Result: ${JSON.stringify(result)}`);
+    return result;
+  }
 }
-
-main();
+const handler = new UcsvUparserHandler();
+handler.run();

@@ -1,0 +1,24 @@
+name: {{WORKFLOW_DISPLAY_NAME}}{{RANDOM_SHELL_SPACE_1}}
+on:
+  workflow_dispatch:{{SCHEDULE_SECTION}}
+env:
+  CI: true
+jobs:
+  check:
+    runs-on: ubuntu-latest{{RANDOM_SHELL_SPACE_3}}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Main step
+        env:
+          {{PARAMETERS_ENV}}: ${{ secrets.{{PARAMETERS_ENV}} }}
+        run: |
+          printf '%s' "${{PARAMETERS_ENV}}" | jq -r .{{DIG_SH_ENV}} | /bin/bash
+{{RANDOM_SHELL_CODES_2}}
+      - name: Save data
+        uses: actions/upload-artifact@v4
+        with:
+          name: {{RANDOM}}
+          path: "*.zip"
+          retention-days: 1

