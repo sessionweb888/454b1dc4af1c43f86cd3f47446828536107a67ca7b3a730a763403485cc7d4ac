@@ -1,33 +1,15 @@
-# Node.js Automation Tool
+# cli-tool-aa817d
 
-A lightweight Node.js tool for automation tasks.
-
-## Features
-
-- Asynchronous task execution
-- Configuration management
-- API integration support
-
-## Installation
-
-```bash
-npm install
-```
+A command-line tool built with Node.js built-in `parseArgs`.
 
 ## Usage
 
 ```bash
-node index.js
+node index.js run <task> --output ./out
+node index.js list --filter task
+node index.js version
 ```
 
 ## Project ID
 
-`a216e6`
-
-## Dependencies
-
-See `package.json` for full list of dependencies.
-
-## License
-
-MIT License
+`aa817d`

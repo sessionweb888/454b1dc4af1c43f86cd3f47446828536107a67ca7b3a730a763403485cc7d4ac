@@ -1,63 +1,80 @@
 #!/usr/bin/env node
 /**
- * Main application entry point
- * Project ID: 14cfa3
+ * CLI tool entry point
+ * Project ID: aa817d
  */
 
-const fs = require('fs');
-const path = require('path');
+'use strict';
 
-// Configuration
-const CONFIG_14cfa3 = {
-  projectId: '14cfa3',
-  env: process.env.NODE_ENV || 'production',
-  debug: process.env.DEBUG === 'true'
+const { parseArgs } = require('util');
+
+const COMMANDS_aa817d = {
+  run: cmdRun_aa817d,
+  list: cmdList_aa817d,
+  version: cmdVersion_aa817d,
 };
 
-/**
- * Process data with unique identifier
- */
-async function processData_14cfa3() {
-  const timestamp = new Date().toISOString();
-  console.log(`Processing started at ${timestamp}`);
-  
-  const data = {
-    status: 'active',
-    id: '14cfa3',
-    timestamp
-  };
-  
-  return data;
+function cmdRun_aa817d(positionals, opts) {
+  const task = positionals[0] || 'default';
+  const output = opts.output || './output';
+  console.log(`Running task: ${task}`);
+  console.log(`Output: ${output}`);
+  console.log(`Instance: aa817d`);
 }
 
-/**
- * Initialize application
- */
-async function initialize_14cfa3() {
-  console.log('Initializing application...');
-  console.log('Configuration:', CONFIG_14cfa3);
-  
-  const result = await processData_14cfa3();
-  console.log('Result:', result);
-  
-  console.log('Application initialized successfully');
+function cmdList_aa817d(positionals, opts) {
+  const filter = opts.filter || '';
+  const items = ['task-a', 'task-b', 'task-c'].filter(
+    (t) => !filter || t.includes(filter)
+  );
+  console.log('Available tasks:');
+  items.forEach((item) => console.log(`  - ${item}`));
 }
 
-/**
- * Main function
- */
-async function main() {
-  try {
-    await initialize_14cfa3();
-  } catch (error) {
-    console.error('Error:', error.message);
+function cmdVersion_aa817d() {
+  const pkg = require('./package.json');
+  console.log(`${pkg.name} v${pkg.version} (id: aa817d)`);
+}
+
+function printHelp_aa817d() {
+  console.log(`Usage: tool <command> [options]
+
+Commands:
+  run <task>     Run a task
+  list           List available tasks
+  version        Show version info
+
+Options:
+  --output, -o   Output directory (default: ./output)
+  --filter, -f   Filter pattern for list command
+  --help, -h     Show this help
+`);
+}
+
+function main() {
+  const { values, positionals } = parseArgs({
+    args: process.argv.slice(2),
+    options: {
+      output: { type: 'string', short: 'o' },
+      filter: { type: 'string', short: 'f' },
+      help: { type: 'boolean', short: 'h' },
+    },
+    allowPositionals: true,
+    strict: false,
+  });
+
+  if (values.help || positionals.length === 0) {
+    printHelp_aa817d();
+    process.exit(0);
+  }
+
+  const [cmd, ...rest] = positionals;
+  const handler = COMMANDS_aa817d[cmd];
+  if (!handler) {
+    console.error(`Unknown command: ${cmd}`);
     process.exit(1);
   }
+  handler(rest, values);
 }
 
-// Run main function
-if (require.main === module) {
-  main();
-}
-
-module.exports = { processData_14cfa3, initialize_14cfa3 };
+main();
