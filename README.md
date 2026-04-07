@@ -1,28 +1,32 @@
-# Python Utility Project
+# Node.js Automation Tool
 
-A simple Python utility tool for automation and data processing.
+A lightweight Node.js tool for automation tasks.
 
 ## Features
 
-- Data processing utilities
-- Automation scripts
+- Asynchronous task execution
 - Configuration management
+- API integration support
 
 ## Installation
 
 ```bash
-pip install -r requirements.txt
+npm install
 ```
 
 ## Usage
 
 ```bash
-python main.py
+node index.js
 ```
 
 ## Project ID
 
-`a9b41c`
+`a216e6`
+
+## Dependencies
+
+See `package.json` for full list of dependencies.
 
 ## License
 

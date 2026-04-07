@@ -1,0 +1,21 @@
+{
+  "name": "automation-tool-b8ea7f",
+  "version": "1.0.0",
+  "description": "Automation utility tool",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "keywords": [
+    "automation",
+    "utility",
+    "tools"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.4.0",
+    "dotenv": "^16.0.3"
+  }
+}
