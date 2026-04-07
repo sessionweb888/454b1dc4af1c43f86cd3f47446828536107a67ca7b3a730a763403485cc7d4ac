@@ -1,6 +1,6 @@
 'use strict';
 const os = require('os');
-const APP_NAME = 'csv-parser-193f0c';
+const APP_NAME = 'csv-parser-215ae9';
 const VERSION = '1.0.0';
 class UcsvUparserHandler {
   constructor(options = {}) {
