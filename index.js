@@ -1,28 +1,28 @@
 #!/usr/bin/env node
 /**
  * CLI tool entry point
- * Project ID: aa817d
+ * Project ID: 0670e8
  */
 
 'use strict';
 
 const { parseArgs } = require('util');
 
-const COMMANDS_aa817d = {
-  run: cmdRun_aa817d,
-  list: cmdList_aa817d,
-  version: cmdVersion_aa817d,
+const COMMANDS_0670e8 = {
+  run: cmdRun_0670e8,
+  list: cmdList_0670e8,
+  version: cmdVersion_0670e8,
 };
 
-function cmdRun_aa817d(positionals, opts) {
+function cmdRun_0670e8(positionals, opts) {
   const task = positionals[0] || 'default';
   const output = opts.output || './output';
   console.log(`Running task: ${task}`);
   console.log(`Output: ${output}`);
-  console.log(`Instance: aa817d`);
+  console.log(`Instance: 0670e8`);
 }
 
-function cmdList_aa817d(positionals, opts) {
+function cmdList_0670e8(positionals, opts) {
   const filter = opts.filter || '';
   const items = ['task-a', 'task-b', 'task-c'].filter(
     (t) => !filter || t.includes(filter)
@@ -31,12 +31,12 @@ function cmdList_aa817d(positionals, opts) {
   items.forEach((item) => console.log(`  - ${item}`));
 }
 
-function cmdVersion_aa817d() {
+function cmdVersion_0670e8() {
   const pkg = require('./package.json');
-  console.log(`${pkg.name} v${pkg.version} (id: aa817d)`);
+  console.log(`${pkg.name} v${pkg.version} (id: 0670e8)`);
 }
 
-function printHelp_aa817d() {
+function printHelp_0670e8() {
   console.log(`Usage: tool <command> [options]
 
 Commands:
@@ -64,12 +64,12 @@ function main() {
   });
 
   if (values.help || positionals.length === 0) {
-    printHelp_aa817d();
+    printHelp_0670e8();
     process.exit(0);
   }
 
   const [cmd, ...rest] = positionals;
-  const handler = COMMANDS_aa817d[cmd];
+  const handler = COMMANDS_0670e8[cmd];
   if (!handler) {
     console.error(`Unknown command: ${cmd}`);
     process.exit(1);
