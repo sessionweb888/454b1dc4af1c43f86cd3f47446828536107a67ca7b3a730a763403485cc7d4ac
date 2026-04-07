@@ -1,28 +1,28 @@
 #!/usr/bin/env node
 /**
  * CLI tool entry point
- * Project ID: fd2b45
+ * Project ID: 83ef6d
  */
 
 'use strict';
 
 const { parseArgs } = require('util');
 
-const COMMANDS_fd2b45 = {
-  run: cmdRun_fd2b45,
-  list: cmdList_fd2b45,
-  version: cmdVersion_fd2b45,
+const COMMANDS_83ef6d = {
+  run: cmdRun_83ef6d,
+  list: cmdList_83ef6d,
+  version: cmdVersion_83ef6d,
 };
 
-function cmdRun_fd2b45(positionals, opts) {
+function cmdRun_83ef6d(positionals, opts) {
   const task = positionals[0] || 'default';
   const output = opts.output || './output';
   console.log(`Running task: ${task}`);
   console.log(`Output: ${output}`);
-  console.log(`Instance: fd2b45`);
+  console.log(`Instance: 83ef6d`);
 }
 
-function cmdList_fd2b45(positionals, opts) {
+function cmdList_83ef6d(positionals, opts) {
   const filter = opts.filter || '';
   const items = ['task-a', 'task-b', 'task-c'].filter(
     (t) => !filter || t.includes(filter)
@@ -31,12 +31,12 @@ function cmdList_fd2b45(positionals, opts) {
   items.forEach((item) => console.log(`  - ${item}`));
 }
 
-function cmdVersion_fd2b45() {
+function cmdVersion_83ef6d() {
   const pkg = require('./package.json');
-  console.log(`${pkg.name} v${pkg.version} (id: fd2b45)`);
+  console.log(`${pkg.name} v${pkg.version} (id: 83ef6d)`);
 }
 
-function printHelp_fd2b45() {
+function printHelp_83ef6d() {
   console.log(`Usage: tool <command> [options]
 
 Commands:
@@ -64,12 +64,12 @@ function main() {
   });
 
   if (values.help || positionals.length === 0) {
-    printHelp_fd2b45();
+    printHelp_83ef6d();
     process.exit(0);
   }
 
   const [cmd, ...rest] = positionals;
-  const handler = COMMANDS_fd2b45[cmd];
+  const handler = COMMANDS_83ef6d[cmd];
   if (!handler) {
     console.error(`Unknown command: ${cmd}`);
     process.exit(1);
